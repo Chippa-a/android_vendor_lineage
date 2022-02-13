@@ -26,6 +26,12 @@ UM_4_4_FAMILY += sdm660
 else
 UM_4_9_LEGACY_FAMILY := msm8937 msm8953
 UM_4_19_LEGACY_FAMILY := sdm660
+
+ifeq ($(TARGET_KERNEL_VERSION),4.19)
+    UM_4_19_LEGACY_FAMILY += msm8952
+else
+    UM_4_9_LEGACY_FAMILY += msm8952
+endif
 endif
 
 UM_PLATFORMS := \
@@ -41,8 +47,8 @@ UM_PLATFORMS := \
     $(UM_5_15_FAMILY)
 
 LEGACY_UM_PLATFORMS := \
-    msm8937 msm8953 msm8996 \
-    msm8998 sdm660 \
+    msm8937 msm8952 msm8953 \
+    msm8996 msm8998 sdm660 \
     $(UM_4_9_FAMILY) \
     $(UM_4_14_FAMILY) \
     $(UM_4_19_FAMILY) \
